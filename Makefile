@@ -1,5 +1,2 @@
-bowling:	main.c
-			gcc main.c -o publish/bowling
-
-run:	
-		publish/bowling
+bowling:	bowling.o main.c
+			gcc bowling.o main.c -o publish/bowling
