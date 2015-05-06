@@ -36,25 +36,25 @@ void pinsKnockedDown(int pins, struct BowlingState *state) {
 
 		//strike
 		if (pins == 10)
-			recordFrameScoringThrows(2);
+			recordFrameScoringThrows(2, state);
 	}
 	// second throw of frame
 	else if (state->frameThrow == 2) {
 
 		// spare
 		if (state->throws[state->gameThrow] + state->throws[state->gameThrow - 1] == 10)
-			recordFrameScoringThrows(1);
+			recordFrameScoringThrows(1, state);
 
 		// less than 10 pins knocked down this frame
 		else {
-			recordFrameScoringThrows(0);
+			recordFrameScoringThrows(0, state);
 		}
 		
 		state->frameThrow = 0;
 	}	
 }
 
-void recordFrameScoringThrows(int futureThrows) {
+void recordFrameScoringThrows(int futureThrows, struct BowlingState *state) {
 	// record the number of throws to add up to calculate a frame's score
 	state->scoreQueue[state->curFrame - 1] = state->gameThrow + futureThrows;
 

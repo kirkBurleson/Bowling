@@ -19,5 +19,5 @@ void destroyBowlingState();
 void initBowlingState(struct BowlingState *state);
 void pinsKnockedDown(int pins, struct BowlingState *state);
 int getScoreForFrame(int frame, struct BowlingState *state);
-
+void recordFrameScoringThrows(int futureThrows, struct BowlingState *state);
 #endif
